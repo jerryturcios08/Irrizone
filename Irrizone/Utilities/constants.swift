@@ -9,5 +9,5 @@
 import Foundation
 
 enum API {
-    static let endpoint = "https://892c4a9f.ngrok.io/getAllReadings"
+    static let endpoint = "https://1ad66ee6.ngrok.io/getAllReadings"
 }
