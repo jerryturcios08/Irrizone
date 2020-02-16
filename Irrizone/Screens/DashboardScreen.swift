@@ -12,6 +12,9 @@ import UIKit
 class DashboardScreen: UIViewController {
     @IBOutlet var chartView: LineChartView!
     @IBOutlet var graphTypeView: UISegmentedControl!
+    @IBOutlet var currentDateLabel: UILabel!
+    @IBOutlet var currentTimeLabel: UILabel!
+    @IBOutlet var weatherLabel: UILabel!
 
     var lineChartHumidityEntries = [ChartDataEntry]()
 
@@ -57,6 +60,17 @@ class DashboardScreen: UIViewController {
         tabBarController?.tabBar.backgroundImage = UIImage()
         tabBarController?.tabBar.tintColor = UIColor(named: "Green")
         tabBarController?.tabBar.shadowImage = UIImage()
+
+        let calendar = Calendar.current
+        let date = Date(timeIntervalSinceNow: 0)
+
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let year = calendar.component(.year, from: date)
+        currentDateLabel.text = "\(month)/\(day)/\(year)"
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        currentTimeLabel.text = "\(hour):\(minute)"
     }
 
     private func fetchReadingData(for type: GraphType) {

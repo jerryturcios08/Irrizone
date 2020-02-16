@@ -91,11 +91,11 @@
             </objects>
             <point key="canvasLocation" x="1072.5" y="78.16901408450704"/>
         </scene>
-        <!--Control-->
+        <!--Sensors-->
         <scene sceneID="et2-4U-UwG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ntb-iM-1N8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Control" image="Detail Tab Icon" id="OwB-ZB-mg4"/>
+                    <tabBarItem key="tabBarItem" title="Sensors" image="Detail Tab Icon" id="OwB-ZB-mg4"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hub-7Q-H8F">
