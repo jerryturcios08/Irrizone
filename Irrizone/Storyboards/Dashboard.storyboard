@@ -3,6 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-V8-E1j" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="320" height="320"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="G8R-78-QnM"/>
                                     <constraint firstAttribute="width" secondItem="lJY-V8-E1j" secondAttribute="height" multiplier="1:1" id="pDE-cc-mdl"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="lJY-V8-E1j" firstAttribute="centerX" secondItem="GTQ-kr-QdX" secondAttribute="centerX" id="3bl-7z-kHH"/>
-                            <constraint firstItem="lJY-V8-E1j" firstAttribute="top" secondItem="WKa-eM-vYw" secondAttribute="top" id="CNO-1t-HQ4"/>
+                            <constraint firstItem="lJY-V8-E1j" firstAttribute="top" secondItem="WKa-eM-vYw" secondAttribute="top" constant="20" id="CNO-1t-HQ4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WKa-eM-vYw"/>
                     </view>
@@ -63,5 +64,8 @@
     </scenes>
     <resources>
         <image name="Home Tab Icon" width="23" height="23"/>
+        <namedColor name="Background">
+            <color red="0.96862745098039216" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

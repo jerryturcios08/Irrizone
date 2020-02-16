@@ -22,7 +22,6 @@ class DashboardScreen: UIViewController {
 
     private func setupDashboardScreen() {
         title = "Dashboard"
-
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
@@ -35,6 +34,7 @@ class DashboardScreen: UIViewController {
 
         navigationItem.rightBarButtonItem?.tintColor = .black
 
+        tabBarController?.tabBar.backgroundColor = .white
         tabBarController?.tabBar.backgroundImage = UIImage()
         tabBarController?.tabBar.tintColor = UIColor(named: "Green")
         tabBarController?.tabBar.shadowImage = UIImage()
@@ -71,6 +71,8 @@ class DashboardScreen: UIViewController {
 
                             let value = ChartDataEntry(x: temp, y: humid)
                             self?.lineChartHumidityEntries.append(value)
+
+                            self?.lineChartHumidityEntries.sort(by: { $0.x < $1.x })
                         }
 
                         DispatchQueue.main.async {
@@ -81,8 +83,8 @@ class DashboardScreen: UIViewController {
                             let data = LineChartData()
                             data.addDataSet(line1)
 
-//                            self?.chartView.data = data
-//                            self?.chartView.chartDescription?.text = "Humidity based on temperature"
+                            self?.chartView.data = data
+                            self?.chartView.chartDescription?.text = "Humidity based on temperature"
                         }
                     } catch {
                         print("An error occurred: \(error)")
