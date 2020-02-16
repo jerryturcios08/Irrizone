@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62821F223F8EFE1005D4F89 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62821F123F8EFE1005D4F89 /* Charts.framework */; };
+		C62821F523F8F76C005D4F89 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62821F423F8F76C005D4F89 /* constants.swift */; };
 		C652EEE123F871EF007B9207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652EEE023F871EF007B9207 /* AppDelegate.swift */; };
 		C652EEE323F871EF007B9207 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652EEE223F871EF007B9207 /* SceneDelegate.swift */; };
 		C652EEE523F871EF007B9207 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652EEE423F871EF007B9207 /* DashboardScreen.swift */; };
@@ -18,9 +20,17 @@
 		C652EEFB23F8733E007B9207 /* ControlScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652EEFA23F8733E007B9207 /* ControlScreen.swift */; };
 		C652EEFE23F87688007B9207 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652EEFD23F87688007B9207 /* Sensor.swift */; };
 		C652EF0123F87C03007B9207 /* SensorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652EF0023F87C03007B9207 /* SensorCell.swift */; };
+		D587B63990BDAFC005E07B38 /* Pods_Irrizone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E554A935B72E217B9F1F751 /* Pods_Irrizone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E554A935B72E217B9F1F751 /* Pods_Irrizone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Irrizone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90C06A749C754511C27F509B /* Pods-Irrizone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Irrizone.release.xcconfig"; path = "Target Support Files/Pods-Irrizone/Pods-Irrizone.release.xcconfig"; sourceTree = "<group>"; };
+		C13A914029A8D4D033A8E8E4 /* Pods-Irrizone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Irrizone.debug.xcconfig"; path = "Target Support Files/Pods-Irrizone/Pods-Irrizone.debug.xcconfig"; sourceTree = "<group>"; };
+		C62821E623F8EF22005D4F89 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C62821ED23F8EF85005D4F89 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C62821F123F8EFE1005D4F89 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C62821F423F8F76C005D4F89 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C652EEDD23F871EF007B9207 /* Irrizone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Irrizone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C652EEE023F871EF007B9207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C652EEE223F871EF007B9207 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,17 +51,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62821F223F8EFE1005D4F89 /* Charts.framework in Frameworks */,
+				D587B63990BDAFC005E07B38 /* Pods_Irrizone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C62821F323F8F75F005D4F89 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C62821F423F8F76C005D4F89 /* constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C652EED423F871EF007B9207 = {
 			isa = PBXGroup;
 			children = (
 				C652EEDF23F871EF007B9207 /* Irrizone */,
 				C652EEDE23F871EF007B9207 /* Products */,
+				CB22967303B673FC77B9A7A5 /* Pods */,
+				FC98C2B9144FCB8A7E698897 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +92,7 @@
 				C652EEFC23F8766D007B9207 /* Models */,
 				C652EEF423F87213007B9207 /* Screens */,
 				C652EEF523F87275007B9207 /* Storyboards */,
+				C62821F323F8F75F005D4F89 /* Utilities */,
 				C652EEE023F871EF007B9207 /* AppDelegate.swift */,
 				C652EEE923F871F1007B9207 /* Assets.xcassets */,
 				C652EEEE23F871F1007B9207 /* Info.plist */,
@@ -114,6 +137,26 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CB22967303B673FC77B9A7A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C13A914029A8D4D033A8E8E4 /* Pods-Irrizone.debug.xcconfig */,
+				90C06A749C754511C27F509B /* Pods-Irrizone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC98C2B9144FCB8A7E698897 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C62821F123F8EFE1005D4F89 /* Charts.framework */,
+				C62821ED23F8EF85005D4F89 /* Charts.framework */,
+				C62821E623F8EF22005D4F89 /* Charts.framework */,
+				1E554A935B72E217B9F1F751 /* Pods_Irrizone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C652EEF123F871F1007B9207 /* Build configuration list for PBXNativeTarget "Irrizone" */;
 			buildPhases = (
+				2C5A001AC8E6BD08AF47841E /* [CP] Check Pods Manifest.lock */,
 				C652EED923F871EF007B9207 /* Sources */,
 				C652EEDA23F871EF007B9207 /* Frameworks */,
 				C652EEDB23F871EF007B9207 /* Resources */,
+				C2DA3FF867F5ED79410827AD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,6 +227,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C5A001AC8E6BD08AF47841E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Irrizone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2DA3FF867F5ED79410827AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Irrizone/Pods-Irrizone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Irrizone/Pods-Irrizone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Irrizone/Pods-Irrizone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C652EED923F871EF007B9207 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -190,6 +277,7 @@
 				C652EEE523F871EF007B9207 /* DashboardScreen.swift in Sources */,
 				C652EEFE23F87688007B9207 /* Sensor.swift in Sources */,
 				C652EEE123F871EF007B9207 /* AppDelegate.swift in Sources */,
+				C62821F523F8F76C005D4F89 /* constants.swift in Sources */,
 				C652EEE323F871EF007B9207 /* SceneDelegate.swift in Sources */,
 				C652EEFB23F8733E007B9207 /* ControlScreen.swift in Sources */,
 				C652EF0123F87C03007B9207 /* SensorCell.swift in Sources */,
@@ -334,6 +422,7 @@
 		};
 		C652EEF223F871F1007B9207 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C13A914029A8D4D033A8E8E4 /* Pods-Irrizone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -352,6 +441,7 @@
 		};
 		C652EEF323F871F1007B9207 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90C06A749C754511C27F509B /* Pods-Irrizone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

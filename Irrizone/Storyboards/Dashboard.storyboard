@@ -14,10 +14,27 @@
                     <view key="view" contentMode="scaleToFill" id="GTQ-kr-QdX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-V8-E1j" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="320" height="320"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="G8R-78-QnM"/>
+                                    <constraint firstAttribute="width" secondItem="lJY-V8-E1j" secondAttribute="height" multiplier="1:1" id="pDE-cc-mdl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lJY-V8-E1j" firstAttribute="centerX" secondItem="GTQ-kr-QdX" secondAttribute="centerX" id="3bl-7z-kHH"/>
+                            <constraint firstItem="lJY-V8-E1j" firstAttribute="top" secondItem="WKa-eM-vYw" secondAttribute="top" id="CNO-1t-HQ4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WKa-eM-vYw"/>
                     </view>
                     <navigationItem key="navigationItem" id="aQD-LO-3Ey"/>
+                    <connections>
+                        <outlet property="chartView" destination="lJY-V8-E1j" id="ZBg-r4-yBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj7-1S-tsL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

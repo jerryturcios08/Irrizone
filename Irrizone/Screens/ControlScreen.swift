@@ -16,6 +16,7 @@ class ControlScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControlScreen()
+        fetchAllReadings()
     }
 
     private func setupControlScreen() {
@@ -31,21 +32,10 @@ class ControlScreen: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-
-        #if DEBUG
-//        sensors.append(Sensor(nodeId: "abc", areaId: "123", humidity: 45, temperature: 60, uv: 2, timestamp: "Yesterday..."))
-//        sensors.append(Sensor(nodeId: "akd", areaId: "392", humidity: 30, temperature: 30, uv: 1, timestamp: "Today..."))
-//        sensors.append(Sensor(nodeId: "fmx", areaId: "205", humidity: 60, temperature: 50, uv: 6, timestamp: "A few minutes ago..."))
-//        sensors.append(Sensor(nodeId: "akv", areaId: "392", humidity: 49, temperature: 70, uv: 8, timestamp: "A millenia ago..."))
-//
-//        tableView.reloadData()
-        #endif
-
-        fetchAllReadings()
     }
 
     private func fetchAllReadings() {
-        let endpoint = "https://d4ae4f0d.ngrok.io/getAllReadings"
+        let endpoint = API.endpoint
         let url = URL(string: endpoint)
 
         DispatchQueue.global(qos: .userInitiated).async {
