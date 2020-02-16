@@ -115,7 +115,11 @@ class DashboardScreen: UIViewController {
                             })
                         }
                     } catch {
-                        print("An error occurred: \(error)")
+                        DispatchQueue.main.async {
+                            let ac = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                            ac.addAction(UIAlertAction(title: "Okay", style: .default))
+                            self?.present(ac, animated: true)
+                        }
                     }
                 }
 
