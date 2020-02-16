@@ -14,13 +14,14 @@ class DashboardScreen: UIViewController {
     @IBOutlet var graphTypeView: UISegmentedControl!
     @IBOutlet var currentDateLabel: UILabel!
     @IBOutlet var currentTimeLabel: UILabel!
-    @IBOutlet var weatherLabel: UILabel!
 
     var lineChartHumidityEntries = [ChartDataEntry]()
 
     // Determines the type of data to show
-    enum GraphType {
-        case humidity, soil, uv
+    enum GraphType: String {
+        case humidity = "Humidity"
+        case soil = "Soil"
+        case uv = "UV"
     }
 
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class DashboardScreen: UIViewController {
             fetchReadingData(for: .humidity)
         case 1:
             fetchReadingData(for: .soil)
-        case 3:
+        case 2:
             fetchReadingData(for: .uv)
         default:
             break
@@ -95,18 +96,18 @@ class DashboardScreen: UIViewController {
 
                         for object in dataObject as [Dictionary<String, Any>] {
                             let reading = object["reading"] as! Dictionary<String, Any>
-                            let humid = reading["humid"] as! Double
-                            let soil = reading["soil"] as! Int
                             let temp = reading["temp"] as! Double
-                            let uv = reading["uv"] as! Int
                             let value: ChartDataEntry
 
                             switch type {
                             case .humidity:
+                                let humid = reading["humid"] as! Double
                                 value = ChartDataEntry(x: temp, y: humid)
                             case .soil:
+                                let soil = reading["soil"] as! Int
                                 value = ChartDataEntry(x: temp, y: Double(soil))
                             case .uv:
+                                let uv = reading["uv"] as! Int
                                 value = ChartDataEntry(x: temp, y: Double(uv))
                             }
 
@@ -117,7 +118,7 @@ class DashboardScreen: UIViewController {
                         DispatchQueue.main.async {
                             UIView.transition(with: self!.chartView, duration: 0.4, options: .transitionFlipFromBottom, animations: {
                                 // Creates the graph once the data is fetched
-                                let line1 = LineChartDataSet(entries: self?.lineChartHumidityEntries, label: "Humidity")
+                                let line1 = LineChartDataSet(entries: self?.lineChartHumidityEntries, label: "\(type.rawValue)")
                                 line1.colors = [NSUIColor.systemGreen]
                                 line1.circleColors = [NSUIColor.systemYellow]
 
@@ -125,7 +126,7 @@ class DashboardScreen: UIViewController {
                                 data.addDataSet(line1)
 
                                 self?.chartView.data = data
-                                self?.chartView.chartDescription?.text = "Humidity based on temperature"
+                                self?.chartView.chartDescription?.text = "\(type.rawValue) based on temperature"
                             })
                         }
                     } catch {
