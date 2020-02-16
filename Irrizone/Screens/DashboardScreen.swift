@@ -11,13 +11,32 @@ import UIKit
 
 class DashboardScreen: UIViewController {
     @IBOutlet var chartView: LineChartView!
+    @IBOutlet var graphTypeView: UISegmentedControl!
 
     var lineChartHumidityEntries = [ChartDataEntry]()
+
+    // Determines the type of data to show
+    enum GraphType {
+        case humidity, soil, uv
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDashboardScreen()
-        fetchReadingData()
+        fetchReadingData(for: .humidity)
+    }
+
+    @IBAction func graphTypeChanged(_ sender: UISegmentedControl) {
+        switch graphTypeView.selectedSegmentIndex {
+        case 0:
+            fetchReadingData(for: .humidity)
+        case 1:
+            fetchReadingData(for: .soil)
+        case 3:
+            fetchReadingData(for: .uv)
+        default:
+            break
+        }
     }
 
     private func setupDashboardScreen() {
@@ -40,7 +59,7 @@ class DashboardScreen: UIViewController {
         tabBarController?.tabBar.shadowImage = UIImage()
     }
 
-    private func fetchReadingData() {
+    private func fetchReadingData(for type: GraphType) {
         let endpoint = API.endpoint
         let url = URL(string: endpoint)
 
@@ -66,25 +85,34 @@ class DashboardScreen: UIViewController {
                             let soil = reading["soil"] as! Int
                             let temp = reading["temp"] as! Double
                             let uv = reading["uv"] as! Int
+                            let value: ChartDataEntry
 
-                            print("\(humid) - \(soil) - \(temp) - \(uv)")
+                            switch type {
+                            case .humidity:
+                                value = ChartDataEntry(x: temp, y: humid)
+                            case .soil:
+                                value = ChartDataEntry(x: temp, y: Double(soil))
+                            case .uv:
+                                value = ChartDataEntry(x: temp, y: Double(uv))
+                            }
 
-                            let value = ChartDataEntry(x: temp, y: humid)
                             self?.lineChartHumidityEntries.append(value)
-
                             self?.lineChartHumidityEntries.sort(by: { $0.x < $1.x })
                         }
 
                         DispatchQueue.main.async {
-                            // Creates the graph once the data is fetched
-                            let line1 = LineChartDataSet(entries: self?.lineChartHumidityEntries, label: "Humidity")
-                            line1.colors = [NSUIColor.blue]
+                            UIView.transition(with: self!.chartView, duration: 0.4, options: .transitionFlipFromBottom, animations: {
+                                // Creates the graph once the data is fetched
+                                let line1 = LineChartDataSet(entries: self?.lineChartHumidityEntries, label: "Humidity")
+                                line1.colors = [NSUIColor.systemGreen]
+                                line1.circleColors = [NSUIColor.systemYellow]
 
-                            let data = LineChartData()
-                            data.addDataSet(line1)
+                                let data = LineChartData()
+                                data.addDataSet(line1)
 
-                            self?.chartView.data = data
-                            self?.chartView.chartDescription?.text = "Humidity based on temperature"
+                                self?.chartView.data = data
+                                self?.chartView.chartDescription?.text = "Humidity based on temperature"
+                            })
                         }
                     } catch {
                         print("An error occurred: \(error)")

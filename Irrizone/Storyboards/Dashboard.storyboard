@@ -16,8 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bPx-WJ-gO1">
+                                <rect key="frame" x="16" y="56" width="288" height="32"/>
+                                <segments>
+                                    <segment title="Humidity"/>
+                                    <segment title="Soil"/>
+                                    <segment title="UV"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="Green"/>
+                                <connections>
+                                    <action selector="graphTypeChanged:" destination="14Y-7F-zIR" eventType="valueChanged" id="Z7C-5y-eg9"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-V8-E1j" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="99" width="320" height="320"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="G8R-78-QnM"/>
@@ -27,14 +39,18 @@
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="bPx-WJ-gO1" firstAttribute="leading" secondItem="WKa-eM-vYw" secondAttribute="leading" constant="16" id="0Xq-Uc-sMa"/>
                             <constraint firstItem="lJY-V8-E1j" firstAttribute="centerX" secondItem="GTQ-kr-QdX" secondAttribute="centerX" id="3bl-7z-kHH"/>
-                            <constraint firstItem="lJY-V8-E1j" firstAttribute="top" secondItem="WKa-eM-vYw" secondAttribute="top" constant="20" id="CNO-1t-HQ4"/>
+                            <constraint firstItem="WKa-eM-vYw" firstAttribute="trailing" secondItem="bPx-WJ-gO1" secondAttribute="trailing" constant="16" id="O2e-4Q-9ZF"/>
+                            <constraint firstItem="bPx-WJ-gO1" firstAttribute="top" secondItem="WKa-eM-vYw" secondAttribute="top" constant="12" id="tGm-gg-Qaj"/>
+                            <constraint firstItem="lJY-V8-E1j" firstAttribute="top" secondItem="bPx-WJ-gO1" secondAttribute="bottom" constant="12" id="wU8-3I-aVM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WKa-eM-vYw"/>
                     </view>
                     <navigationItem key="navigationItem" id="aQD-LO-3Ey"/>
                     <connections>
                         <outlet property="chartView" destination="lJY-V8-E1j" id="ZBg-r4-yBA"/>
+                        <outlet property="graphTypeView" destination="bPx-WJ-gO1" id="hxf-HD-x19"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj7-1S-tsL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,6 +82,9 @@
         <image name="Home Tab Icon" width="23" height="23"/>
         <namedColor name="Background">
             <color red="0.96862745098039216" green="0.96078431372549022" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.37647058823529411" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
